@@ -47,4 +47,6 @@ The APIs are configured to allow only [5 channels](https://github.com/awsed/glob
 
 A backend process or service can be used to [unsubscribe](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-real-time-invalidation.html) clients from a channel by calling an `unsubscribe` mutation and informing the channel name. This will forcibly close their WebSocket connection. Clients are authorized using API Keys however the invalidation mutation is configured so it can only be invoked with IAM authorization so clients cannot unsubscribe other clients.
 
-![Screnshot](invalidation.png)
+<p align="center">
+  <img src="invalidation.png">
+</p>
