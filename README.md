@@ -13,7 +13,7 @@
 <br/>
 <br/>
 
-## Deploy the API to the cloud
+## Deploy APIs to the cloud
 
 1. Clone the project to your local working directory:
 
@@ -33,7 +33,7 @@
    npm install
    ```
 
-4. Deploy the stack to your default AWS account and region. After deployment, the output of this command shows the GraphQL API endpoint, API ID, and API key. Take note of all the details as they'll be needed to setup the client:
+4. Deploy the stack to your default AWS account and region. After deployment, the output of this command shows the GraphQL API endpoint, API ID, and API key. Take note of all the details as they are needed to setup clients:
 
    ```sh
    cdk deploy
