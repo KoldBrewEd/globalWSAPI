@@ -13,7 +13,7 @@
 <br/>
 <br/>
 
-## Deploy APIs to the cloud
+## Deploy APIs and Event Buses to the cloud
 
 1. Clone the project to your local working directory:
 
