@@ -1,4 +1,4 @@
-# Global Serverless/Functionless WebSockets Real-time PubSub API 
+# Global Serverless/Functionless WebSockets PubSub API 
 ## with AWS AppSync and Amazon EventBridge
 
 
