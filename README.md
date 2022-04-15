@@ -2,7 +2,7 @@
 ## with AWS AppSync and Amazon EventBridge
 
 
-![Screnshot](globalWSAPI.png)
+![Screnshot](images/globalWSAPI.png)
 
 This is an implementation of a multi-region PubSub real-time API based on WebSockets where clients are subscribed to a specific channel and messages are pushed automatically to clients listening/subscribed to the channel. Connections, scalability, fan-out and broadcasting are all automatically handled by the regional APIs.
 <br/>
@@ -48,18 +48,18 @@ This is an implementation of a multi-region PubSub real-time API based on WebSoc
 
 ## Enhanced Filtering and Invalidation
 
-
+<p align="center">
+  <img src="images/invalidation.png">
+</p>
 The APIs are configured to allow only [5 channels](https://github.com/awsed/globalWSAPI/blob/76934587e8ca5c1dcc69d5cd8695d3d681566f00/cdk/lib/globalSubs-region1-stack.ts#L160) using backend [Enhanced Filtering](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-real-time-enhanced-filtering.html) logic.
 
 A backend process or service can be used to [unsubscribe](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-real-time-invalidation.html) clients from a channel by calling an `unsubscribe` mutation and informing the channel name. This will forcibly close their WebSocket connection. Clients are authorized using API Keys however the invalidation mutation is configured so it can only be invoked with IAM authorization so clients cannot unsubscribe other clients.
 
-<p align="center">
-  <img src="invalidation.png">
-</p>
 <br/>
 <br/>
 
 ## Configure the React.js client
+![Screnshot](images/client.png)
 
 1. Change the working directory to the `client` folder:
 
