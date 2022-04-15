@@ -10,10 +10,10 @@ import * as mutations from "./graphql/mutations"; //codegen generated code
 //AppSync endpoint settings
 const myAppConfig = {
   aws_appsync_graphqlEndpoint:
-    "https://xxxxxxxx.appsync-api.us-west-2.amazonaws.com/graphql",
+    "https://xxxxxxx.appsync-api.us-west-2.amazonaws.com/graphql",
   aws_appsync_region: "us-west-2",
   aws_appsync_authenticationType: "API_KEY",
-  aws_appsync_apiKey: "da2-xxxxxxxxxxxxx",
+  aws_appsync_apiKey: "da2-xxxxxxxxx",
 };
 
 Amplify.configure(myAppConfig);
@@ -37,7 +37,9 @@ function App() {
     setChannel("");
     setMessage("");
     setDisplay(true);
-    console.log(messages);
+    if (channelName !== channel) {
+      setReceived([]);
+    }
   };
 
   useEffect(() => {

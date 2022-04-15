@@ -11,6 +11,7 @@ This is an implementation of a multi-region PubSub real-time API based on WebSoc
 * [Git installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [Node and NPM](https://nodejs.org/en/download/) installed
 * [AWS Cloud Development Kit](https://docs.aws.amazon.com/cdk/latest/guide/cli.html) (AWS CDK) installed
+* [Amplify CLI](https://docs.amplify.aws/cli/start/install/), only required to generate code as the backend deployment is done via AWS CDK
 <br/>
 <br/>
 
@@ -50,3 +51,33 @@ A backend process or service can be used to [unsubscribe](https://docs.aws.amazo
 <p align="center">
   <img src="invalidation.png">
 </p>
+
+## Configure the React.js client
+
+1. Change the working directory to the `client` folder:
+
+   ```sh
+   cd ../client
+   ```
+
+2. Install the project dependencies:
+
+   ```sh
+   npm install
+   ```
+
+3. Open the file `src/App.js` and update the [AppSync API congifuration details](https://github.com/awsed/simpleWSAPI/blob/34907e893bbdffb7d352848f0aafbf7fe4d380c8/client/src/App.js#L9) based on the output of the previous `cdk deploy`.
+
+4. Generate the necessary code to interact with the API using the [Amplify CodeGen](https://docs.amplify.aws/cli/graphql-transformer/codegen/) with the API ID output of the previous `cdk deploy`. There's no need to create an Amplify CLI project, however you'll need to download the API schema from the [AWS Appsync Console](https://console.aws.amazon.com/appsync/home). Select the API `GlobalWS-API` in one of the regions your account and, in the Schema section, select **Export schema**. Download and copy the schema file to the root of the `/client` folder, where you need to execute the following command accepting all defaults:
+
+   ```sh
+   amplify add codegen --apiId xxxxxxxxxxxxxxxxxxxxxx
+   ```
+
+6. Execute the application and access it from multiple browser tabs/windows at <http://localhost:3000> :
+
+    ```bash
+    npm start
+    ```
+
+7. Define a channel and send messages from one client and get it broadcasted in all browser windows. Since AWS AppSync automatically scales to demand, you can have thousands of clients broadcasting messages data. 
