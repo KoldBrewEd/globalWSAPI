@@ -5,6 +5,9 @@
 ![Screnshot](globalWSAPI.png)
 
 This is an implementation of a multi-region PubSub real-time API based on WebSockets where clients are subscribed to a specific channel and messages are pushed automatically to clients listening/subscribed to the channel. Connections, scalability, fan-out and broadcasting are all automatically handled by the regional APIs.
+<br/>
+<br/>
+
 ## Requirements
 
 * [Create an AWS account](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html) if you do not already have one and log in. The IAM user that you use must have sufficient permissions to make necessary AWS service calls and manage AWS resources.
@@ -42,6 +45,7 @@ This is an implementation of a multi-region PubSub real-time API based on WebSoc
    ```
 <br/>
 <br/>
+
 ## Enhanced Filtering and Invalidation
 
 
@@ -54,6 +58,7 @@ A backend process or service can be used to [unsubscribe](https://docs.aws.amazo
 </p>
 <br/>
 <br/>
+
 ## Configure the React.js client
 
 1. Change the working directory to the `client` folder:
