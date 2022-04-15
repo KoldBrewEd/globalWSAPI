@@ -4,7 +4,7 @@
 
 ![Screnshot](images/globalWSAPI.png)
 
-This is an implementation of a multi-region PubSub real-time API based on WebSockets where clients are subscribed to a specific channel and messages are pushed automatically to clients listening/subscribed to the channel. Connections management, scalability, fan-out and broadcasting are all automatically handled by the regional APIs.
+This is an implementation of a multi-region PubSub real-time API based on WebSockets where clients are subscribed to a specific channel and messages are pushed automatically to clients listening/subscribed to the channel. Connections management, scalability, fan-out and broadcasting are all automatically handled by the regional AppSync APIs.
 <br/>
 <br/>
 
@@ -89,4 +89,4 @@ A backend process or service can be used to [unsubscribe](https://docs.aws.amazo
     npm start
     ```
 
-7. Select a channel from the drop-down and send messages from one client and get it broadcasted in all browser windows. You can also type a different channel name in the form and try to send a message, however no messages will be published as filtering in AppSync is blocking other channels. Since AWS AppSync automatically scales to demand, you can have thousands of clients broadcasting messages data. 
+7. Select a channel from the drop-down, send messages from one client and get it broadcasted to all browser windows. You can also type a different channel name in the form and try to send a message, however no messages will be published as filtering in AppSync is blocking other channels. Since AWS AppSync automatically scales to demand, you can have thousands of clients broadcasting messages data. 
