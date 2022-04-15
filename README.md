@@ -73,7 +73,7 @@ A backend process or service can be used to [unsubscribe](https://docs.aws.amazo
    npm install
    ```
 
-3. Open the file `src/App.js` and update the [AppSync API congifuration details](https://github.com/awsed/simpleWSAPI/blob/34907e893bbdffb7d352848f0aafbf7fe4d380c8/client/src/App.js#L9) based on the output of the previous `cdk deploy`.
+3. Open the file `src/App.js` and update the [AppSync API congifuration details](https://github.com/awsed/globalWSAPI/blob/064f6d3012e66a486185b56404a8fa92048589c2/client/src/App.js#L11) based on the output of the previous `cdk deploy`. You can connect the client to your API of choice (Oregon or Sydney). You could also duplicate the `client` folder and have a different instance of each client connecting to different API to test multi-region subscriptions.
 
 4. Generate the necessary code to interact with the API using the [Amplify CodeGen](https://docs.amplify.aws/cli/graphql-transformer/codegen/) with the API ID output of the previous `cdk deploy`. There's no need to create an Amplify CLI project, however you'll need to download the API schema from the [AWS Appsync Console](https://console.aws.amazon.com/appsync/home). Select the API `GlobalWS-API` in one of the regions your account and, in the Schema section, select **Export schema**. Download and copy the schema file to the root of the `/client` folder, where you need to execute the following command accepting all defaults:
 
