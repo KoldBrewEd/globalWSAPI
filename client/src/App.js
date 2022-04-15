@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "@popperjs/core";
+import "bootstrap";
 import ScrollToBottom from "react-scroll-to-bottom";
 import logo from "./logo.svg";
 import "./App.css";
@@ -10,10 +13,10 @@ import * as mutations from "./graphql/mutations"; //codegen generated code
 //AppSync endpoint settings
 const myAppConfig = {
   aws_appsync_graphqlEndpoint:
-    "https://xxxxxxx.appsync-api.us-west-2.amazonaws.com/graphql",
+    "https://xxxxxxxxxxxxxx.appsync-api.us-west-2.amazonaws.com/graphql",
   aws_appsync_region: "us-west-2",
   aws_appsync_authenticationType: "API_KEY",
-  aws_appsync_apiKey: "da2-xxxxxxxxx",
+  aws_appsync_apiKey: "da2-xxxxxxxxxxxxxx",
 };
 
 Amplify.configure(myAppConfig);
@@ -74,13 +77,62 @@ function App() {
       <div className="container-md border shadow p-3 mb-5 bg-body rounded-3">
         <img src={logo} className="App-logo" alt="logo" />
         <form>
-          <div className="mb-3">
+          <div className="input-group mb-3">
+            <button
+              className="btn btn-outline-light btn-dark dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Channel
+            </button>
+            <ul className="dropdown-menu">
+              <li>
+                <p
+                  className="dropdown-item"
+                  onClick={(e) => setChannel("cars")}
+                >
+                  cars
+                </p>
+              </li>
+              <li>
+                <p
+                  className="dropdown-item"
+                  onClick={(e) => setChannel("robots")}
+                >
+                  robots
+                </p>
+              </li>
+              <li>
+                <p
+                  className="dropdown-item"
+                  onClick={(e) => setChannel("tech")}
+                >
+                  tech
+                </p>
+              </li>
+              <li>
+                <p
+                  className="dropdown-item"
+                  onClick={(e) => setChannel("music")}
+                >
+                  music
+                </p>
+              </li>
+              <li>
+                <p
+                  className="dropdown-item"
+                  onClick={(e) => setChannel("media")}
+                >
+                  media
+                </p>
+              </li>
+            </ul>
             <input
-              type="email"
+              type="text"
               className="form-control"
-              id="channelInput"
               value={channel}
-              placeholder="Channel"
+              aria-label="Channel"
               onChange={(e) => setChannel(e.target.value)}
             />
           </div>
