@@ -4,7 +4,7 @@
 
 ![Screnshot](images/globalWSAPI.png)
 
-This is an implementation of a multi-region PubSub real-time API based on WebSockets where clients are subscribed to a specific channel and messages are pushed automatically to clients listening/subscribed to the channel. Connections management, scalability, fan-out and broadcasting are all automatically handled by the regional AppSync APIs.
+This is an implementation of a multi-region PubSub real-time API based on Serverless/Functionless WebSockets where clients are subscribed to a specific channel and messages are pushed automatically to clients listening/subscribed to the channel. Connections management, scalability, fan-out and broadcasting are all automatically handled by the regional AppSync APIs.
 <br/>
 <br/>
 
