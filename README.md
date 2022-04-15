@@ -38,10 +38,10 @@ This is an implementation of a multi-region PubSub real-time API based on WebSoc
    npm install
    ```
 
-4. Deploy the stack to your default AWS account and region. After deployment, the output of this command shows the GraphQL API endpoint, API ID, and API key. Take note of all the details as they are needed to setup clients:
+4. Deploy the 4 CDK stacks with a single command to your default AWS account. Regions for each stack are defined [here](https://github.com/awsed/globalWSAPI/blob/main/cdk/bin/multiregionsubs.ts). After deployment, the output of the 2 first stackes shows the GraphQL APIs endpoint, API IDs, and API keys. Take note of all the details as they are needed to setup clients later:
 
    ```sh
-   cdk deploy
+   cdk deploy --all
    ```
 <br/>
 <br/>
