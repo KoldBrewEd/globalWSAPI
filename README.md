@@ -51,6 +51,8 @@ This is an implementation of a multi-region PubSub real-time API based on Server
 <p align="center">
   <img src="images/invalidation.png">
 </p>
+
+
 The APIs are configured to allow only 5 channels using backend [Enhanced Filtering](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-real-time-enhanced-filtering.html) logic:
 
 https://github.com/awsed/globalWSAPI/blob/76934587e8ca5c1dcc69d5cd8695d3d681566f00/cdk/lib/globalSubs-region1-stack.ts#L160
