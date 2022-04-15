@@ -10,10 +10,10 @@ import * as mutations from "./graphql/mutations"; //codegen generated code
 //AppSync endpoint settings
 const myAppConfig = {
   aws_appsync_graphqlEndpoint:
-    "https://xxxxxxxxxxxxx.appsync-api.us-west-2.amazonaws.com/graphql",
+    "https://xxxxxxxx.appsync-api.us-west-2.amazonaws.com/graphql",
   aws_appsync_region: "us-west-2",
   aws_appsync_authenticationType: "API_KEY",
-  aws_appsync_apiKey: "da2-xxxxxxxxxxxxxxxxxxxx",
+  aws_appsync_apiKey: "da2-xxxxxxxxxxxxx",
 };
 
 Amplify.configure(myAppConfig);
@@ -24,6 +24,7 @@ function App() {
   const [message, setMessage] = useState("");
   const [received, setReceived] = useState([]);
   const [display, setDisplay] = useState(false);
+  let messages = [];
 
   //Publish data to subscribed clients
   async function handleSubmit(evt) {
@@ -36,6 +37,7 @@ function App() {
     setChannel("");
     setMessage("");
     setDisplay(true);
+    console.log(messages);
   };
 
   useEffect(() => {
@@ -44,8 +46,10 @@ function App() {
       graphqlOperation(subscriptions.subscribe, { name: channelName })
     ).subscribe({
       next: ({ provider, value }) => {
-        console.log(value)
-        setReceived(value.data.subscribe.message);
+        setReceived((prevArray) => [
+          ...prevArray,
+          value.data.subscribe.message,
+        ]);
       },
       error: (error) => console.warn(error),
     });
@@ -53,7 +57,12 @@ function App() {
   }, [channelName]);
 
   if (received) {
-    //
+    //messages.push(received);
+    messages = [].concat(received).map((msg, i) =>
+      <div className="alert alert-secondary">
+        <span key={i}>{msg}</span>
+      </div>
+    );
   }
 
   //Display pushed data on browser
@@ -96,13 +105,13 @@ function App() {
       </div>
       {display ? (
         <div className="container-md border shadow p-3 mb-5 bg-body rounded-3">
-          <p>{channelName}</p>
+          <p className="badge fs-2 bg-dark p-0 rounded p-2">{channelName}</p>
           <div className="bg-light p-0 rounded p-2">
-            <ScrollToBottom className="chat">{received}</ScrollToBottom>
+            <ScrollToBottom className="chat">{messages}</ScrollToBottom>
           </div>
         </div>
       ) : null}
-      <br/>
+      <br />
     </div>
   );
 }
