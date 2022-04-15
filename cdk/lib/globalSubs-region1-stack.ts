@@ -27,6 +27,7 @@ export class GlobalSubsRegion1 extends cdk.Stack {
     // Defining data types (Code-first GraphQL) - Messages are sent to channels by name
 
     const channel = new ObjectType('Channel', {
+      directives: [Directive.iam(),Directive.apiKey()],
       definition: {
         name: GraphqlType.string({ isRequired: true }),
         message: GraphqlType.string({ isRequired: true }),
