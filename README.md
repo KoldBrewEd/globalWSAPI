@@ -40,7 +40,8 @@ This is an implementation of a multi-region PubSub real-time API based on WebSoc
    ```sh
    cdk deploy
    ```
-
+<br/>
+<br/>
 ## Enhanced Filtering and Invalidation
 
 
@@ -51,7 +52,8 @@ A backend process or service can be used to [unsubscribe](https://docs.aws.amazo
 <p align="center">
   <img src="invalidation.png">
 </p>
-
+<br/>
+<br/>
 ## Configure the React.js client
 
 1. Change the working directory to the `client` folder:
