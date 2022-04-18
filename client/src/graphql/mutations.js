@@ -9,19 +9,3 @@ export const publish = /* GraphQL */ `
     }
   }
 `;
-export const publishFromBus = /* GraphQL */ `
-  mutation PublishFromBus($message: String!, $name: String!) {
-    publishFromBus(message: $message, name: $name) {
-      message
-      name
-    }
-  }
-`;
-export const unsubscribe = /* GraphQL */ `
-  mutation Unsubscribe($name: String!) {
-    unsubscribe(name: $name) {
-      message
-      name
-    }
-  }
-`;

@@ -13,10 +13,10 @@ import * as mutations from "./graphql/mutations"; //codegen generated code
 //AppSync endpoint settings
 const myAppConfig = {
   aws_appsync_graphqlEndpoint:
-    "https://xxxxxxxxxxxx.appsync-api.us-west-2.amazonaws.com/graphql",
+    "https://xxxxxxxxxxx.appsync-api.us-west-2.amazonaws.com/graphql",
   aws_appsync_region: "us-west-2",
   aws_appsync_authenticationType: "API_KEY",
-  aws_appsync_apiKey: "da2-xxxxxxxxxxxx",
+  aws_appsync_apiKey: "da2-xxxxxxxxxxxxxxxx",
 };
 
 Amplify.configure(myAppConfig);
