@@ -67,7 +67,7 @@ mutation Unsubscribe {
 }
 ```
 
-This will forcibly close their WebSocket connection. Clients are authorized using API Keys however the invalidation mutation is configured so it can only be invoked with IAM authorization so clients cannot unsubscribe other clients. Alternatively the [AWS Appsync Console](https://console.aws.amazon.com/appsync/home) can be used as an administrative tool to invoke the mutation to invalidate/unsubscribe clients in a given channel by selecting AWS IAM in the Queries section.
+This will forcibly close their WebSocket connection. Clients are authorized using API Keys however the invalidation mutation is configured so it can only be invoked with IAM authorization so clients cannot unsubscribe other clients. Either a backend service with the proper permissions or the [AWS Appsync Console](https://console.aws.amazon.com/appsync/home) can be used as an administrative tool to invoke the mutation to invalidate/unsubscribe clients in a given channel by selecting AWS IAM in the Queries section.
 
 <br/>
 <br/>
