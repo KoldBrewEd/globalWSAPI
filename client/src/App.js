@@ -13,10 +13,10 @@ import * as mutations from "./graphql/mutations"; //codegen generated code
 //AppSync endpoint settings
 const myAppConfig = {
   aws_appsync_graphqlEndpoint:
-    "https://xxxxxxxxxxx.appsync-api.us-west-2.amazonaws.com/graphql",
+    "https://xxxxxxxxxxxxxx.appsync-api.us-west-2.amazonaws.com/graphql",
   aws_appsync_region: "us-west-2",
   aws_appsync_authenticationType: "API_KEY",
-  aws_appsync_apiKey: "da2-xxxxxxxxxxxxxxxx",
+  aws_appsync_apiKey: "da2-xxxxxxxxxxxxxxxxxx",
 };
 
 Amplify.configure(myAppConfig);
@@ -81,7 +81,7 @@ function App() {
   return (
     <div className="App bg-secondary">
       <br />
-      <h4 className="text-white bg-dark p-2">Global PubSub App</h4>
+      <h4 className="text-white fs-1 bg-dark p-2">Global PubSub App</h4>
       <br />
       <div className="container-md border shadow p-3 mb-5 bg-body rounded-3">
         <img src={logo} className="App-logo" alt="logo" />
@@ -168,7 +168,7 @@ function App() {
       </div>
       {display ? (
         <div className="container-md border shadow p-3 mb-5 bg-body rounded-3">
-          <p className="badge fs-2 bg-dark p-0 rounded p-2">Message Board</p>
+          <p className="badge fs-3 bg-dark p-0 rounded p-2">Message Board</p>
           <div className="bg-light p-0 rounded p-2">
             <span>{messages}</span>
           </div>
