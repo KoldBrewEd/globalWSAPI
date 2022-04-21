@@ -4,7 +4,7 @@
 
 ![Screnshot](images/globalWSAPI.png)
 
-This is an implementation of a multi-region PubSub real-time API based on Serverless/Functionless WebSockets where clients are subscribed to a specific channel and messages are pushed automatically to clients listening/subscribed to the channel. Connections management, scalability, fan-out and broadcasting are all automatically handled by the regional AppSync APIs.
+This is an implementation of a multi-region PubSub real-time API based on Serverless/Functionless WebSockets where clients are subscribed to a specific channel and messages are pushed automatically to clients listening/subscribed to the channel in both regions. Connections management, scalability, fan-out and broadcasting are all automatically handled by the regional AppSync APIs.
 <br/>
 <br/>
 
@@ -57,7 +57,17 @@ The APIs are configured to allow only 5 channels using backend [Enhanced Filteri
 
 https://github.com/awsed/globalWSAPI/blob/76934587e8ca5c1dcc69d5cd8695d3d681566f00/cdk/lib/globalSubs-region1-stack.ts#L160
 
-A backend process or service can be used to [unsubscribe](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-real-time-invalidation.html) clients from a channel by calling an `unsubscribe` mutation and informing the channel name. This will forcibly close their WebSocket connection. Clients are authorized using API Keys however the invalidation mutation is configured so it can only be invoked with IAM authorization so clients cannot unsubscribe other clients. Alternatively the [AWS Appsync Console](https://console.aws.amazon.com/appsync/home) can be used as an administrative tool to invoke the mutation to invalidate/unsubscribe clients in a given channel by selecting AWS IAM in the Queries section.
+A backend process or service can be used to [unsubscribe](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-real-time-invalidation.html) clients from a channel by calling an `unsubscribe` mutation and informing the channel name:
+
+```
+mutation Unsubscribe {
+  unsubscribe(name: "tech") {
+    name
+  }
+}
+```
+
+This will forcibly close their WebSocket connection. Clients are authorized using API Keys however the invalidation mutation is configured so it can only be invoked with IAM authorization so clients cannot unsubscribe other clients. Alternatively the [AWS Appsync Console](https://console.aws.amazon.com/appsync/home) can be used as an administrative tool to invoke the mutation to invalidate/unsubscribe clients in a given channel by selecting AWS IAM in the Queries section.
 
 <br/>
 <br/>
